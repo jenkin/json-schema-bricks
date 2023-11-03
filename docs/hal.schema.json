@@ -110,20 +110,8 @@
                 "href": {
                     "title": "href",
                     "description": "Its value is either a URI [RFC3986](https://www.rfc-editor.org/info/rfc3986) or a URI Template [RFC6570](https://www.rfc-editor.org/info/rfc6570). If the value is a URI Template then the Link Object SHOULD have a templated attribute whose value is true.",
-                    "anyOf": [
-                        {
-                            "type": "string",
-                            "format": "uri"
-                        },
-                        {
-                            "type": "string",
-                            "format": "uri-template"
-                        },
-                        {
-                            "title": "Local path",
-                            "$ref": "#/$defs/LocalPath"
-                        }
-                    ]
+                    "type": "string",
+                    "format": "uri-reference"
                 },
                 "templated": {
                     "title": "templated",
@@ -138,16 +126,8 @@
                 "deprecation": {
                     "title": "deprecation",
                     "description": "Its presence indicates that the link is to be deprecated (i.e. removed) at a future date. Its value is a URL that SHOULD provide further information about the deprecation.",
-                    "anyOf": [
-                        {
-                            "type": "string",
-                            "format": "uri"
-                        },
-                        {
-                            "title": "Local path",
-                            "$ref": "#/$defs/LocalPath"
-                        }
-                    ]
+                    "type": "string",
+                    "format": "uri-reference"
                 },
                 "name": {
                     "title": "name",
@@ -157,16 +137,8 @@
                 "profile": {
                     "title": "profile",
                     "description": "Its value is a string which is a URI that hints about the profile (as defined by [RFC6906](https://www.rfc-editor.org/info/rfc6906)) of the target resource.",
-                    "anyOf": [
-                        {
-                            "type": "string",
-                            "format": "uri"
-                        },
-                        {
-                            "title": "Local path",
-                            "$ref": "#/$defs/LocalPath"
-                        }
-                    ]
+                    "type": "string",
+                    "format": "uri-reference"
                 },
                 "title": {
                     "title": "title",
@@ -206,11 +178,6 @@
             "title": "IANA Language Subtags",
             "description": "Official Language Subtags from IANA: https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry",
             "$ref": "https://jenkin.dev/json-schema-bricks/IANALanguageSubtags.schema.json"
-        },
-        "LocalPath": {
-            "title": "Regex for local (absolute or relative) path",
-            "type": "string",
-            "pattern": "^(\\.{0,2})?(/[^/]+)*(/[^/]+|/)?$"
         }
     }
 }
