@@ -13,12 +13,14 @@ This project lists some useful reusable schemas ready to be referenced by yours.
 ## Table of Contents
 
 - [IANA Protocol Registries](#iana-protocol-registries)
-  - [Language Subtag Registry](#iana-language-subtag-registry) [[prod](https://jenkin.github.io/json-schema-bricks/IANALanguageSubtags.schema.min.json), [dev](https://jenkin.github.io/json-schema-bricks/IANALanguageSubtags.schema.json)]
-  - [Link Relation Types Registry](#iana-link-relation-types-registry) [[prod](https://jenkin.github.io/json-schema-bricks/IANALinkRelationTypes.schema.min.json), [dev](https://jenkin.github.io/json-schema-bricks/IANALinkRelationTypes.schema.json)]
-  - [Media Types Registry](#iana-media-types-registries) [[prod](https://jenkin.github.io/json-schema-bricks/IANAMediaTypes.schema.min.json), [dev](https://jenkin.github.io/json-schema-bricks/IANAMediaTypes.schema.json)]
+  - [Language Subtag Registry](#iana-language-subtag-registry) [[prod](https://jenkin.dev/json-schema-bricks/IANALanguageSubtags.schema.min.json), [dev](https://jenkin.dev/json-schema-bricks/IANALanguageSubtags.schema.json)]
+  - [Link Relation Types Registry](#iana-link-relation-types-registry) [[prod](https://jenkin.dev/json-schema-bricks/IANALinkRelationTypes.schema.min.json), [dev](https://jenkin.dev/json-schema-bricks/IANALinkRelationTypes.schema.json)]
+  - [Media Types Registry](#iana-media-types-registries) [[prod](https://jenkin.dev/json-schema-bricks/IANAMediaTypes.schema.min.json), [dev](https://jenkin.dev/json-schema-bricks/IANAMediaTypes.schema.json)]
 - Miscellaneous
-  - [GeocodeJSON](https://github.com/geocoders/geocodejson-spec) [[prod](https://jenkin.github.io/json-schema-bricks/geocodejson.schema.min.json), [dev](https://jenkin.github.io/json-schema-bricks/geocodejson.schema.json)]
-  - [HAL+JSON](https://github.com/mikekelly/hal-rfc) [[prod](https://jenkin.github.io/json-schema-bricks/hal.schema.min.json), [dev](https://jenkin.github.io/json-schema-bricks/hal.schema.json)]
+  - [GeocodeJSON](https://github.com/geocoders/geocodejson-spec) [[prod](https://jenkin.dev/json-schema-bricks/geocodejson.schema.min.json), [dev](https://jenkin.dev/json-schema-bricks/geocodejson.schema.json)]
+  - [GeoHash](http://geohash.org/) [[prod](https://jenkin.dev/json-schema-bricks/geohash.schema.min.json), [dev](https://jenkin.dev/json-schema-bricks/geohash.schema.json)]
+  - [HAL+JSON](https://github.com/mikekelly/hal-rfc) [[prod](https://jenkin.dev/json-schema-bricks/hal.schema.min.json), [dev](https://jenkin.dev/json-schema-bricks/hal.schema.json)]
+  - [SemVer](https://semver.org/) [[prod](https://jenkin.dev/json-schema-bricks/semver.schema.min.json), [dev](https://jenkin.dev/json-schema-bricks/semver.schema.json)]
 
 ### IANA Protocol Registries
 
@@ -28,7 +30,7 @@ This project lists some useful reusable schemas ready to be referenced by yours.
 
 #### IANA Language Subtag Registry
 
-IANA Language Subtag schema [[prod](https://jenkin.github.io/json-schema-bricks/IANALanguageSubtags.schema.min.json), [dev](https://jenkin.github.io/json-schema-bricks/IANALanguageSubtags.schema.json)].
+IANA Language Subtag schema [[prod](https://jenkin.dev/json-schema-bricks/IANALanguageSubtags.schema.min.json), [dev](https://jenkin.dev/json-schema-bricks/IANALanguageSubtags.schema.json)].
 
 > This document describes the structure, content, construction, and semantics of language tags for use in cases where it is desirable to indicate the language used in an information object. It also describes how to register values for use in language tags and the creation of user-defined extensions for private interchange.
 
@@ -38,7 +40,7 @@ Source: https://www.iana.org/assignments/language-subtag-registry/language-subta
 
 #### IANA Link Relation Types Registry
 
-IANA Link Relation Types schema [[prod](https://jenkin.github.io/json-schema-bricks/IANALinkRelationTypes.schema.min.json), [dev](https://jenkin.github.io/json-schema-bricks/IANALinkRelationTypes.schema.json)].
+IANA Link Relation Types schema [[prod](https://jenkin.dev/json-schema-bricks/IANALinkRelationTypes.schema.min.json), [dev](https://jenkin.dev/json-schema-bricks/IANALinkRelationTypes.schema.json)].
 
 > This specification defines a model for the relationships between resources on the Web (links) and the type of those relationships (link relation types).
 
@@ -46,7 +48,7 @@ Source: https://www.iana.org/assignments/link-relations/link-relations.xhtml (se
 
 #### IANA Media Types Registries
 
-IANA Media Types schema [[prod](https://jenkin.github.io/json-schema-bricks/IANAMediaTypes.schema.min.json), [dev](https://jenkin.github.io/json-schema-bricks/IANAMediaTypes.schema.json)].
+IANA Media Types schema [[prod](https://jenkin.dev/json-schema-bricks/IANAMediaTypes.schema.min.json), [dev](https://jenkin.dev/json-schema-bricks/IANAMediaTypes.schema.json)].
 
 > This specification defines a model for the relationships between resources on the Web (links) and the type of those relationships (link relation types).
 
@@ -54,34 +56,34 @@ Source: https://www.iana.org/assignments/media-types/media-types.xhtml (see [RFC
 
 Registries:
 
-- [application](https://www.iana.org/assignments/media-types/media-types.xhtml#application) [[prod](https://jenkin.github.io/json-schema-bricks/IANAMediaTypes.schema.min.json#/$defs/ApplicationRegistry), [dev](https://jenkin.github.io/json-schema-bricks/IANAMediaTypes.schema.json#/$defs/ApplicationRegistry)]
-- [audio](https://www.iana.org/assignments/media-types/media-types.xhtml#audio) [[prod](https://jenkin.github.io/json-schema-bricks/IANAMediaTypes.schema.min.json#/$defs/AudioRegistry), [dev](https://jenkin.github.io/json-schema-bricks/IANAMediaTypes.schema.json#/$defs/AudioRegistry)]
-- [font](https://www.iana.org/assignments/media-types/media-types.xhtml#font) [[prod](https://jenkin.github.io/json-schema-bricks/IANAMediaTypes.schema.min.json#/$defs/FontRegistry), [dev](https://jenkin.github.io/json-schema-bricks/IANAMediaTypes.schema.json#/$defs/FontRegistry)]
+- [application](https://www.iana.org/assignments/media-types/media-types.xhtml#application) [[prod](https://jenkin.dev/json-schema-bricks/IANAMediaTypes.schema.min.json#/$defs/ApplicationRegistry), [dev](https://jenkin.dev/json-schema-bricks/IANAMediaTypes.schema.json#/$defs/ApplicationRegistry)]
+- [audio](https://www.iana.org/assignments/media-types/media-types.xhtml#audio) [[prod](https://jenkin.dev/json-schema-bricks/IANAMediaTypes.schema.min.json#/$defs/AudioRegistry), [dev](https://jenkin.dev/json-schema-bricks/IANAMediaTypes.schema.json#/$defs/AudioRegistry)]
+- [font](https://www.iana.org/assignments/media-types/media-types.xhtml#font) [[prod](https://jenkin.dev/json-schema-bricks/IANAMediaTypes.schema.min.json#/$defs/FontRegistry), [dev](https://jenkin.dev/json-schema-bricks/IANAMediaTypes.schema.json#/$defs/FontRegistry)]
 - [example](https://www.iana.org/assignments/media-types/media-types.xhtml#example) (empty set)
-- [image](https://www.iana.org/assignments/media-types/media-types.xhtml#image) [[prod](https://jenkin.github.io/json-schema-bricks/IANAMediaTypes.schema.min.json#/$defs/ImageRegistry), [dev](https://jenkin.github.io/json-schema-bricks/IANAMediaTypes.schema.json#/$defs/ImageRegistry)]
-- [message](https://www.iana.org/assignments/media-types/media-types.xhtml#message) [[prod](https://jenkin.github.io/json-schema-bricks/IANAMediaTypes.schema.min.json#/$defs/MessageRegistry), [dev](https://jenkin.github.io/json-schema-bricks/IANAMediaTypes.schema.json#/$defs/MessageRegistry)]
-- [model](https://www.iana.org/assignments/media-types/media-types.xhtml#model) [[prod](https://jenkin.github.io/json-schema-bricks/IANAMediaTypes.schema.min.json#/$defs/ModelRegistry), [dev](https://jenkin.github.io/json-schema-bricks/IANAMediaTypes.schema.json#/$defs/ModelRegistry)]
-- [multipart](https://www.iana.org/assignments/media-types/media-types.xhtml#multipart) [[prod](https://jenkin.github.io/json-schema-bricks/IANAMediaTypes.schema.min.json#/$defs/MultipartRegistry), [dev](https://jenkin.github.io/json-schema-bricks/IANAMediaTypes.schema.json#/$defs/MultipartRegistry)]
-- [text](https://www.iana.org/assignments/media-types/media-types.xhtml#text) [[prod](https://jenkin.github.io/json-schema-bricks/IANAMediaTypes.schema.min.json#/$defs/TextRegistry), [dev](https://jenkin.github.io/json-schema-bricks/IANAMediaTypes.schema.json#/$defs/TextRegistry)]
-- [video](https://www.iana.org/assignments/media-types/media-types.xhtml#video) [[prod](https://jenkin.github.io/json-schema-bricks/IANAMediaTypes.schema.min.json#/$defs/VideoRegistry), [dev](https://jenkin.github.io/json-schema-bricks/IANAMediaTypes.schema.json#/$defs/VideoRegistry)]
+- [image](https://www.iana.org/assignments/media-types/media-types.xhtml#image) [[prod](https://jenkin.dev/json-schema-bricks/IANAMediaTypes.schema.min.json#/$defs/ImageRegistry), [dev](https://jenkin.dev/json-schema-bricks/IANAMediaTypes.schema.json#/$defs/ImageRegistry)]
+- [message](https://www.iana.org/assignments/media-types/media-types.xhtml#message) [[prod](https://jenkin.dev/json-schema-bricks/IANAMediaTypes.schema.min.json#/$defs/MessageRegistry), [dev](https://jenkin.dev/json-schema-bricks/IANAMediaTypes.schema.json#/$defs/MessageRegistry)]
+- [model](https://www.iana.org/assignments/media-types/media-types.xhtml#model) [[prod](https://jenkin.dev/json-schema-bricks/IANAMediaTypes.schema.min.json#/$defs/ModelRegistry), [dev](https://jenkin.dev/json-schema-bricks/IANAMediaTypes.schema.json#/$defs/ModelRegistry)]
+- [multipart](https://www.iana.org/assignments/media-types/media-types.xhtml#multipart) [[prod](https://jenkin.dev/json-schema-bricks/IANAMediaTypes.schema.min.json#/$defs/MultipartRegistry), [dev](https://jenkin.dev/json-schema-bricks/IANAMediaTypes.schema.json#/$defs/MultipartRegistry)]
+- [text](https://www.iana.org/assignments/media-types/media-types.xhtml#text) [[prod](https://jenkin.dev/json-schema-bricks/IANAMediaTypes.schema.min.json#/$defs/TextRegistry), [dev](https://jenkin.dev/json-schema-bricks/IANAMediaTypes.schema.json#/$defs/TextRegistry)]
+- [video](https://www.iana.org/assignments/media-types/media-types.xhtml#video) [[prod](https://jenkin.dev/json-schema-bricks/IANAMediaTypes.schema.min.json#/$defs/VideoRegistry), [dev](https://jenkin.dev/json-schema-bricks/IANAMediaTypes.schema.json#/$defs/VideoRegistry)]
 
 Templates (custom regex):
 
-- application [[prod](https://jenkin.github.io/json-schema-bricks/IANAMediaTypes.schema.min.json#/$defs/ApplicationTemplate), [dev](https://jenkin.github.io/json-schema-bricks/IANAMediaTypes.schema.json#/$defs/ApplicationTemplate)]
-- audio [[prod](https://jenkin.github.io/json-schema-bricks/IANAMediaTypes.schema.min.json#/$defs/AudioTemplate), [dev](https://jenkin.github.io/json-schema-bricks/IANAMediaTypes.schema.json#/$defs/AudioTemplate)]
-- font [[prod](https://jenkin.github.io/json-schema-bricks/IANAMediaTypes.schema.min.json#/$defs/FontTemplate), [dev](https://jenkin.github.io/json-schema-bricks/IANAMediaTypes.schema.json#/$defs/FontTemplate)]
-- example [[prod](https://jenkin.github.io/json-schema-bricks/IANAMediaTypes.schema.min.json#/$defs/ExampleTemplate), [dev](https://jenkin.github.io/json-schema-bricks/IANAMediaTypes.schema.json#/$defs/ExampleTemplate)]
-- image [[prod](https://jenkin.github.io/json-schema-bricks/IANAMediaTypes.schema.min.json#/$defs/ImageTemplate), [dev](https://jenkin.github.io/json-schema-bricks/IANAMediaTypes.schema.json#/$defs/ImageTemplate)]
-- message [[prod](https://jenkin.github.io/json-schema-bricks/IANAMediaTypes.schema.min.json#/$defs/MessageTemplate), [dev](https://jenkin.github.io/json-schema-bricks/IANAMediaTypes.schema.json#/$defs/MessageTemplate)]
-- model [[prod](https://jenkin.github.io/json-schema-bricks/IANAMediaTypes.schema.min.json#/$defs/ModelTemplate), [dev](https://jenkin.github.io/json-schema-bricks/IANAMediaTypes.schema.json#/$defs/ModelTemplate)]
-- multipart [[prod](https://jenkin.github.io/json-schema-bricks/IANAMediaTypes.schema.min.json#/$defs/MultipartTemplate), [dev](https://jenkin.github.io/json-schema-bricks/IANAMediaTypes.schema.json#/$defs/MultipartTemplate)]
-- text [[prod](https://jenkin.github.io/json-schema-bricks/IANAMediaTypes.schema.min.json#/$defs/TextTemplate), [dev](https://jenkin.github.io/json-schema-bricks/IANAMediaTypes.schema.json#/$defs/TextTemplate)]
-- video [[prod](https://jenkin.github.io/json-schema-bricks/IANAMediaTypes.schema.min.json#/$defs/VideoTemplate), [dev](https://jenkin.github.io/json-schema-bricks/IANAMediaTypes.schema.json#/$defs/VideoTemplate)]
+- application [[prod](https://jenkin.dev/json-schema-bricks/IANAMediaTypes.schema.min.json#/$defs/ApplicationTemplate), [dev](https://jenkin.dev/json-schema-bricks/IANAMediaTypes.schema.json#/$defs/ApplicationTemplate)]
+- audio [[prod](https://jenkin.dev/json-schema-bricks/IANAMediaTypes.schema.min.json#/$defs/AudioTemplate), [dev](https://jenkin.dev/json-schema-bricks/IANAMediaTypes.schema.json#/$defs/AudioTemplate)]
+- font [[prod](https://jenkin.dev/json-schema-bricks/IANAMediaTypes.schema.min.json#/$defs/FontTemplate), [dev](https://jenkin.dev/json-schema-bricks/IANAMediaTypes.schema.json#/$defs/FontTemplate)]
+- example [[prod](https://jenkin.dev/json-schema-bricks/IANAMediaTypes.schema.min.json#/$defs/ExampleTemplate), [dev](https://jenkin.dev/json-schema-bricks/IANAMediaTypes.schema.json#/$defs/ExampleTemplate)]
+- image [[prod](https://jenkin.dev/json-schema-bricks/IANAMediaTypes.schema.min.json#/$defs/ImageTemplate), [dev](https://jenkin.dev/json-schema-bricks/IANAMediaTypes.schema.json#/$defs/ImageTemplate)]
+- message [[prod](https://jenkin.dev/json-schema-bricks/IANAMediaTypes.schema.min.json#/$defs/MessageTemplate), [dev](https://jenkin.dev/json-schema-bricks/IANAMediaTypes.schema.json#/$defs/MessageTemplate)]
+- model [[prod](https://jenkin.dev/json-schema-bricks/IANAMediaTypes.schema.min.json#/$defs/ModelTemplate), [dev](https://jenkin.dev/json-schema-bricks/IANAMediaTypes.schema.json#/$defs/ModelTemplate)]
+- multipart [[prod](https://jenkin.dev/json-schema-bricks/IANAMediaTypes.schema.min.json#/$defs/MultipartTemplate), [dev](https://jenkin.dev/json-schema-bricks/IANAMediaTypes.schema.json#/$defs/MultipartTemplate)]
+- text [[prod](https://jenkin.dev/json-schema-bricks/IANAMediaTypes.schema.min.json#/$defs/TextTemplate), [dev](https://jenkin.dev/json-schema-bricks/IANAMediaTypes.schema.json#/$defs/TextTemplate)]
+- video [[prod](https://jenkin.dev/json-schema-bricks/IANAMediaTypes.schema.min.json#/$defs/VideoTemplate), [dev](https://jenkin.dev/json-schema-bricks/IANAMediaTypes.schema.json#/$defs/VideoTemplate)]
 
 Combinations:
 
-- all registries [[prod](https://jenkin.github.io/json-schema-bricks/IANAMediaTypes.schema.min.json#/$defs/AllRegistries), [dev](https://jenkin.github.io/json-schema-bricks/IANAMediaTypes.schema.json#/$defs/AllRegistries)]
-- all templates [[prod](https://jenkin.github.io/json-schema-bricks/IANAMediaTypes.schema.min.json#/$defs/AllTemplates), [dev](https://jenkin.github.io/json-schema-bricks/IANAMediaTypes.schema.json#/$defs/AllTemplates)]
+- all registries [[prod](https://jenkin.dev/json-schema-bricks/IANAMediaTypes.schema.min.json#/$defs/AllRegistries), [dev](https://jenkin.dev/json-schema-bricks/IANAMediaTypes.schema.json#/$defs/AllRegistries)]
+- all templates [[prod](https://jenkin.dev/json-schema-bricks/IANAMediaTypes.schema.min.json#/$defs/AllTemplates), [dev](https://jenkin.dev/json-schema-bricks/IANAMediaTypes.schema.json#/$defs/AllTemplates)]
 
 > Notes: empty, obsolete or deprecated media types are excluded, `text/plain` is included. Root schema references `AllRegistries`.
 
