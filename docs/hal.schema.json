@@ -1,0 +1,216 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://raw.githubusercontent.com/mikekelly/hal-rfc/master/hal.schema.json",
+    "title": "JSON Hypertext Application Language",
+    "description": "This document proposes a media type for representing resources and their relations with hyperlinks. Full specification at https://datatracker.ietf.org/doc/html/draft-kelly-json-hal. Its root object MUST be a Resource Object.",
+    "allOf": [
+        {
+            "$ref": "#/$defs/Resource"
+        }
+    ],
+    "$defs": {
+        "Resource": {
+            "title": "Resource Object",
+            "description": "A Resource Object represents a resource.",
+            "type": "object",
+            "properties": {
+                "_links": {
+                    "type": "object",
+                    "title": "_links contains links to other resources",
+                    "description": "It is an object whose property names are link relation types (as defined by [RFC5988](https://www.rfc-editor.org/info/rfc5988)) and values are either a Link Object or an array of Link Objects. The subject resource of these links is the Resource Object of which the containing '_links' object is a property.",
+                    "propertyNames": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/LinkRelationTypes"
+                            },
+                            {
+                                "type": "string",
+                                "const": "curies"
+                            }
+                        ]
+                    },
+                    "properties": {
+                        "curies": {
+                            "title": "HAL curies",
+                            "description": "HAL establishes a mechanism called curies which allows for link relation types that are compact and more human readable, whilst still offering a way that they MAY be expanded into a dereferencable URI providing documentation.",
+                            "type": "array",
+                            "items": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/$defs/Link"
+                                    },
+                                    {
+                                        "type": "object",
+                                        "properties": {
+                                            "href": {
+                                                "type": "string",
+                                                "pattern": "{rel}"
+                                            },
+                                            "templated": {
+                                                "type": "boolean",
+                                                "const": true
+                                            }
+                                        },
+                                        "required": [
+                                            "name",
+                                            "templated"
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "patternProperties": {
+                        ".+": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/$defs/Link"
+                                },
+                                {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/$defs/Link"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "_embedded": {
+                    "type": "object",
+                    "title": "_embedded contains embedded resources",
+                    "description": "It is an object whose property names are link relation types (as defined by [RFC5988](https://www.rfc-editor.org/info/rfc5988)) and values are either a Resource Object or an array of Resource Objects.",
+                    "propertyNames": {
+                        "$ref": "#/$defs/LinkRelationTypes"
+                    },
+                    "patternProperties": {
+                        ".+": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/$defs/Resource"
+                                },
+                                {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/$defs/Resource"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "Link": {
+            "title": "Link Object",
+            "description": "A Link Object represents a hyperlink from the containing resource to a URI.",
+            "type": "object",
+            "properties": {
+                "href": {
+                    "title": "href",
+                    "description": "Its value is either a URI [RFC3986](https://www.rfc-editor.org/info/rfc3986) or a URI Template [RFC6570](https://www.rfc-editor.org/info/rfc6570). If the value is a URI Template then the Link Object SHOULD have a templated attribute whose value is true.",
+                    "anyOf": [
+                        {
+                            "type": "string",
+                            "format": "uri"
+                        },
+                        {
+                            "type": "string",
+                            "format": "uri-template"
+                        },
+                        {
+                            "title": "Local path",
+                            "$ref": "#/$defs/LocalPath"
+                        }
+                    ]
+                },
+                "templated": {
+                    "title": "templated",
+                    "description": "Its value is boolean and SHOULD be true when the Link Object's href property is a URI Template. Its value SHOULD be considered false if it is undefined or any other value than true.",
+                    "type": "boolean"
+                },
+                "type": {
+                    "title": "type",
+                    "description": "Its value is a string used as a hint to indicate the media type expected when dereferencing the target resource.",
+                    "$ref": "#/$defs/MimeTypes"
+                },
+                "deprecation": {
+                    "title": "deprecation",
+                    "description": "Its presence indicates that the link is to be deprecated (i.e. removed) at a future date. Its value is a URL that SHOULD provide further information about the deprecation.",
+                    "anyOf": [
+                        {
+                            "type": "string",
+                            "format": "uri"
+                        },
+                        {
+                            "title": "Local path",
+                            "$ref": "#/$defs/LocalPath"
+                        }
+                    ]
+                },
+                "name": {
+                    "title": "name",
+                    "description": "Its value MAY be used as a secondary key for selecting Link Objects which share the same relation type.",
+                    "type": "string"
+                },
+                "profile": {
+                    "title": "profile",
+                    "description": "Its value is a string which is a URI that hints about the profile (as defined by [RFC6906](https://www.rfc-editor.org/info/rfc6906)) of the target resource.",
+                    "anyOf": [
+                        {
+                            "type": "string",
+                            "format": "uri"
+                        },
+                        {
+                            "title": "Local path",
+                            "$ref": "#/$defs/LocalPath"
+                        }
+                    ]
+                },
+                "title": {
+                    "title": "title",
+                    "description": "Its value is a string and is intended for labelling the link with a human-readable identifier (as defined by [RFC5988](https://www.rfc-editor.org/info/rfc5988)).",
+                    "type": "string"
+                },
+                "hreflang": {
+                    "title": "hreflang",
+                    "description": "Its value is a string and is intended for indicating the language of the target resource (as defined by [RFC5988](https://www.rfc-editor.org/info/rfc5988)).",
+                    "$ref": "#/$defs/LanguageSubtags"
+                }
+            },
+            "required": [
+                "href"
+            ]
+        },
+        "LinkRelationTypes": {
+            "title": "IANA Link Relation Types",
+            "description": "Official Link Relation Types from IANA: https://www.iana.org/assignments/link-relations/link-relations.xhtml",
+            "$ref": "https://jenkin.dev/json-schema-bricks/IANALinkRelationTypes.schema.json"
+        },
+        "MimeTypes": {
+            "oneOf": [
+                {
+                    "title": "IANA Media Types",
+                    "description": "Official Media Types from IANA: https://www.iana.org/assignments/media-types/media-types.xhtml",
+                    "$ref": "https://jenkin.dev/json-schema-bricks/IANAMediaTypes.schema.json#/$defs/AllRegistries"
+                },
+                {
+                    "title": "HAL Media Type (not registered)",
+                    "type": "string",
+                    "const": "application/hal+json"
+                }
+            ]
+        },
+        "LanguageSubtags": {
+            "title": "IANA Language Subtags",
+            "description": "Official Language Subtags from IANA: https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry",
+            "$ref": "https://jenkin.dev/json-schema-bricks/IANALanguageSubtags.schema.json"
+        },
+        "LocalPath": {
+            "title": "Regex for local (absolute or relative) path",
+            "type": "string",
+            "pattern": "^(\\.{0,2})?(/[^/]+)*(/[^/]+|/)?$"
+        }
+    }
+}
