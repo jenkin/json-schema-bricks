@@ -6,9 +6,74 @@ A bunch of JSON Schema specifications of general interest you can freely `$ref`.
 
 [JSON Schema](https://json-schema.org/) specification allows [schemas composition](https://json-schema.org/understanding-json-schema/reference/combining) and [cross-reference](https://json-schema.org/understanding-json-schema/structuring#dollarref) using `$ref` attribute.
 
-This project lists some useful reusable schemas ready to be referenced by yours. The `dev` variants are human-readable and can contain external references (resolved at runtime), in the `prod` one all external schemas are *dereferenced* (so resolved at build time) and included in a standalone minified bundle.
+This project lists some useful reusable schemas ready to be referenced by yours. The `dev` variants are human-readable and can contain external references (resolved at runtime), in the `prod` ones all external schemas are *dereferenced* (so resolved at build time) and included in a standalone minified bundle. You can also refer to a sub-schema using [JSON pointers](https://json-schema.org/understanding-json-schema/structuring#json-pointer) (see the second example).
 
 > Tip! Take also a look to [JSON Schema Store](https://www.schemastore.org/json/), it freely lists and serves hundreds of open source schemas!
+
+### Example
+
+A (partial) validation of the Node Package Manager `package.json` (see the [official docs](https://docs.npmjs.com/cli/v10/configuring-npm/package-json)).
+
+```json
+{
+  "title": "A node project",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "version": {
+      "$ref": "https://jenkin.dev/json-schema-bricks/semver.schema.min.json"
+    }
+    "description": {
+      "type": "string"
+    },
+    "keywords": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "homepage": {
+      "type": "string",
+      "format": "uri"
+    }
+  }
+}
+```
+
+Validation of an object that represents an image.
+
+```json
+{
+  "title": "An image",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "size": {
+      "description": "File size in bytes",
+      "type": "integer",
+      "minimum": 0
+    },
+    "width": {
+      "description": "Image width in pixels",
+      "type": "integer",
+      "minimum": 0
+    },
+    "height": {
+      "description": "Image height in pixels",
+      "type": "integer",
+      "minimum": 0
+    },
+    "type": {
+      "description": "An official mime-type",
+      "$ref": "https://jenkin.dev/json-schema-bricks/IANAMediaTypes.schema.min.json#/$defs/ImageRegistry"
+    }
+  }
+}
+```
 
 ## Table of Contents
 
@@ -16,11 +81,12 @@ This project lists some useful reusable schemas ready to be referenced by yours.
   - [Language Subtag Registry](#iana-language-subtag-registry) [[prod](https://jenkin.dev/json-schema-bricks/IANALanguageSubtags.schema.min.json), [dev](https://jenkin.dev/json-schema-bricks/IANALanguageSubtags.schema.json)]
   - [Link Relation Types Registry](#iana-link-relation-types-registry) [[prod](https://jenkin.dev/json-schema-bricks/IANALinkRelationTypes.schema.min.json), [dev](https://jenkin.dev/json-schema-bricks/IANALinkRelationTypes.schema.json)]
   - [Media Types Registry](#iana-media-types-registries) [[prod](https://jenkin.dev/json-schema-bricks/IANAMediaTypes.schema.min.json), [dev](https://jenkin.dev/json-schema-bricks/IANAMediaTypes.schema.json)]
-- Miscellaneous
-  - [GeocodeJSON](https://github.com/geocoders/geocodejson-spec) [[prod](https://jenkin.dev/json-schema-bricks/geocodejson.schema.min.json), [dev](https://jenkin.dev/json-schema-bricks/geocodejson.schema.json)]
-  - [GeoHash](http://geohash.org/) [[prod](https://jenkin.dev/json-schema-bricks/geohash.schema.min.json), [dev](https://jenkin.dev/json-schema-bricks/geohash.schema.json)]
-  - [HAL+JSON](https://github.com/mikekelly/hal-rfc) [[prod](https://jenkin.dev/json-schema-bricks/hal.schema.min.json), [dev](https://jenkin.dev/json-schema-bricks/hal.schema.json)]
-  - [SemVer](https://semver.org/) [[prod](https://jenkin.dev/json-schema-bricks/semver.schema.min.json), [dev](https://jenkin.dev/json-schema-bricks/semver.schema.json)]
+- [Geographic Information System (GIS)](#geographic-information-system-gis)
+  - [GeocodeJSON](#geocodejson) [[prod](https://github.com/geocoders/geocodejson-spec/blob/master/draft/geocodejson.schema.json), [dev](https://github.com/geocoders/geocodejson-spec/blob/master/src/geocodejson.schema.json)] :partying_face: OFFICIALLY ADOPTED! :partying_face:
+  - [GeoHash](#geohash) [[prod](https://jenkin.dev/json-schema-bricks/geohash.schema.min.json), [dev](https://jenkin.dev/json-schema-bricks/geohash.schema.json)]
+- [Miscellaneous](#miscellaneous)
+  - [HAL+JSON](#json-hypertext-application-language) [[prod](https://jenkin.dev/json-schema-bricks/hal.schema.min.json), [dev](https://jenkin.dev/json-schema-bricks/hal.schema.json)]
+  - [SemVer](#semantic-versioning) [[prod](https://jenkin.dev/json-schema-bricks/semver.schema.min.json), [dev](https://jenkin.dev/json-schema-bricks/semver.schema.json)]
 
 ### IANA Protocol Registries
 
@@ -86,6 +152,46 @@ Combinations:
 - all templates [[prod](https://jenkin.dev/json-schema-bricks/IANAMediaTypes.schema.min.json#/$defs/AllTemplates), [dev](https://jenkin.dev/json-schema-bricks/IANAMediaTypes.schema.json#/$defs/AllTemplates)]
 
 > Notes: empty, obsolete or deprecated media types are excluded, `text/plain` is included. Root schema references `AllRegistries`.
+
+### Geographic Information System (GIS)
+
+A [geographic information system](https://en.wikipedia.org/wiki/Geographic_information_system) (GIS) consists of integrated computer hardware and software that store, manage, analyze, edit, output, and visualize geographic data.
+
+#### GeocodeJSON
+
+> OFFICIALLY ADOPTED!!!
+
+Official GeocodeJSON schema [[prod](https://github.com/geocoders/geocodejson-spec/blob/master/draft/geocodejson.schema.json), [dev](https://github.com/geocoders/geocodejson-spec/blob/master/src/geocodejson.schema.json)].
+
+> An attempt to have standard geojson responses from geocoders.
+
+Source: https://github.com/geocoders/geocodejson-spec (see [geocodejson-spec/pull/25](https://github.com/geocoders/geocodejson-spec/pull/25)).
+
+#### GeoHash
+
+GeoHash [[prod](https://jenkin.dev/json-schema-bricks/geohash.schema.min.json), [dev](https://jenkin.dev/json-schema-bricks/geohash.schema.json)].
+
+> Geohash is a public domain geocode system which encodes a geographic location into a short string of letters and digits.
+
+Source: http://geohash.org
+
+### Miscellaneous
+
+#### JSON Hypertext Application Language
+
+HAL+JSON [[prod](https://jenkin.dev/json-schema-bricks/hal.schema.min.json), [dev](https://jenkin.dev/json-schema-bricks/hal.schema.json)].
+
+> This document proposes a media type for representing resources and their relations with hyperlinks.
+
+Source: https://github.com/mikekelly/hal-rfc (see [hal-rfc/issues/28](https://github.com/mikekelly/hal-rfc/issues/28)).
+
+#### Semantic Versioning
+
+SemVer [[prod](https://jenkin.dev/json-schema-bricks/semver.schema.min.json), [dev](https://jenkin.dev/json-schema-bricks/semver.schema.json)].
+
+> Under this scheme, version numbers and the way they change convey meaning about the underlying code and what has been modified from one version to the next.
+
+Source: https://semver.org (see [semver.org/issues/431](https://github.com/semver/semver.org/issues/431)).
 
 ## Contributing
 
