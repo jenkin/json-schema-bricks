@@ -219,6 +219,9 @@ Source: https://semver.org (see [semver.org/issues/431](https://github.com/semve
 
 Any contribution is welcome! Please read and accept our [Code of Conduct](https://github.com/jenkin/json-schema-bricks/blob/main/CODE_OF_CONDUCT.md), then refer to [Contributing Guidelines](https://github.com/jenkin/json-schema-bricks/blob/main/CONTRIBUTING.md) before [opening issues](https://github.com/jenkin/json-schema-bricks/issues) or [pull requests](https://github.com/jenkin/json-schema-bricks/pulls).
 
+Please use [json-dereference-cli](https://www.npmjs.com/package/json-dereference-cli) to build minified variants (you need [nodejs](https://nodejs.org/en) and [npm](https://www.npmjs.com/)):
+`npx -y json-dereference-cli@0.1.2 -s docs/NAME.schema.json -o docs/NAME.schema.min.json`.
+
 ## License
 
 CC0 1.0 Universal
