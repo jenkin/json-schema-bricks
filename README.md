@@ -77,10 +77,11 @@ Validation of an object that represents an image.
 
 ## Table of Contents
 
-- [IANA Protocol Registries](#iana-protocol-registries)
+- [IANA Internet Assigned Numbers Authority](#iana-internet-assigned-numbers-authority)
   - [Language Subtag Registry](#iana-language-subtag-registry) [[prod](https://jenkin.dev/json-schema-bricks/IANALanguageSubtags.schema.min.json), [dev](https://jenkin.dev/json-schema-bricks/IANALanguageSubtags.schema.json)]
   - [Link Relation Types Registry](#iana-link-relation-types-registry) [[prod](https://jenkin.dev/json-schema-bricks/IANALinkRelationTypes.schema.min.json), [dev](https://jenkin.dev/json-schema-bricks/IANALinkRelationTypes.schema.json)]
   - [Media Types Registry](#iana-media-types-registries) [[prod](https://jenkin.dev/json-schema-bricks/IANAMediaTypes.schema.min.json), [dev](https://jenkin.dev/json-schema-bricks/IANAMediaTypes.schema.json)]
+  - [Character Sets Registry](#iana-character-sets-registries) [[prod](https://jenkin.dev/json-schema-bricks/IANACharacterSets.schema.min.json), [dev](https://jenkin.dev/json-schema-bricks/IANACharacterSets.schema.json)]
 - [Geographic Information System (GIS)](#geographic-information-system-gis)
   - [GeocodeJSON](#geocodejson) [[prod](https://github.com/geocoders/geocodejson-spec/blob/master/draft/geocodejson.schema.json), [dev](https://github.com/geocoders/geocodejson-spec/blob/master/src/geocodejson.schema.json)] :partying_face: OFFICIALLY ADOPTED! :partying_face:
   - [GeoHash](#geohash) [[prod](https://jenkin.dev/json-schema-bricks/geohash.schema.min.json), [dev](https://jenkin.dev/json-schema-bricks/geohash.schema.json)]
@@ -88,7 +89,7 @@ Validation of an object that represents an image.
   - [HAL+JSON](#json-hypertext-application-language) [[prod](https://jenkin.dev/json-schema-bricks/hal.schema.min.json), [dev](https://jenkin.dev/json-schema-bricks/hal.schema.json)]
   - [SemVer](#semantic-versioning) [[prod](https://jenkin.dev/json-schema-bricks/semver.schema.min.json), [dev](https://jenkin.dev/json-schema-bricks/semver.schema.json)]
 
-### IANA Protocol Registries
+### IANA Internet Assigned Numbers Authority
 
 [IANA](https://www.iana.org/about) (Internet Assigned Numbers Authority) allocates and maintains unique codes and numbering systems that are used in the technical standards (protocols) that drive the Internet.
 
@@ -152,6 +153,27 @@ Combinations:
 - all templates [[prod](https://jenkin.dev/json-schema-bricks/IANAMediaTypes.schema.min.json#/$defs/AllTemplates), [dev](https://jenkin.dev/json-schema-bricks/IANAMediaTypes.schema.json#/$defs/AllTemplates)]
 
 > Notes: empty, obsolete or deprecated media types are excluded, `text/plain` is included. Root schema references `AllRegistries`.
+
+#### IANA Character Sets Registries
+
+IANA Character Sets schema [[prod](https://jenkin.dev/json-schema-bricks/IANACharacterSets.schema.min.json), [dev](https://jenkin.dev/json-schema-bricks/IANACharacterSets.schema.json)].
+
+> These are the official names for character sets that may be used in the Internet and may be referred to in Internet documentation.
+
+Source: https://www.iana.org/assignments/character-sets/character-sets.xhtml (see [RFC2978](https://www.rfc-editor.org/rfc/rfc2978.html)).
+
+Registries:
+
+- [Preferred MIME Name](https://www.iana.org/assignments/character-sets/character-sets.xhtml) [[prod](https://jenkin.dev/json-schema-bricks/IANACharacterSets.schema.min.json#/$defs/MIMENameRegistry), [dev](https://jenkin.dev/json-schema-bricks/IANACharacterSets.schema.json#/$defs/MIMENameRegistry)]
+- [Name](https://www.iana.org/assignments/character-sets/character-sets.xhtml) [[prod](https://jenkin.dev/json-schema-bricks/IANACharacterSets.schema.min.json#/$defs/NameRegistry), [dev](https://jenkin.dev/json-schema-bricks/IANACharacterSets.schema.json#/$defs/NameRegistry)]
+- [Aliases](https://www.iana.org/assignments/character-sets/character-sets.xhtml) [[prod](https://jenkin.dev/json-schema-bricks/IANACharacterSets.schema.min.json#/$defs/AliasesRegistry), [dev](https://jenkin.dev/json-schema-bricks/IANACharacterSets.schema.json#/$defs/AliasesRegistry)]
+- [MIBenum](https://www.iana.org/assignments/character-sets/character-sets.xhtml) [[prod](https://jenkin.dev/json-schema-bricks/IANACharacterSets.schema.min.json#/$defs/MIBenumRegistry), [dev](https://jenkin.dev/json-schema-bricks/IANACharacterSets.schema.json#/$defs/MIBenumRegistry)]
+
+Combinations:
+
+- all registries but MIBenum [[prod](https://jenkin.dev/json-schema-bricks/IANACharacterSets.schema.min.json#/$defs/AllRegistries), [dev](https://jenkin.dev/json-schema-bricks/IANACharacterSets.schema.json#/$defs/AllRegistries)]
+
+> Notes: MIBenum has string type. Root schema references `AllRegistries`.
 
 ### Geographic Information System (GIS)
 
