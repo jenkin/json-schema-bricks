@@ -1,0 +1,92 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://www.iso.org/iso-3166-3.schema.json",
+    "title": "ISO 3166-3 Country Codes",
+    "description": "[ISO3166](https://www.iso.org/iso-3166-country-codes.html) - Codes for the representation of names of countries and their subdivisions - Part 3: Code for formerly used names of countries.",
+    "allOf": [
+        {
+            "$ref": "#/$defs/Alpha4Registry"
+        }
+    ],
+    "$defs": {
+        "Alpha4Template": {
+            "title": "ISO 3166-3 alpha-4 template (lowercase)",
+            "type": "string",
+            "pattern": "^[a-z]{4}$"
+        },
+        "Alpha4Registry": {
+            "title": "ISO 3166-3 alpha-4 formerly assigned country codes (lowercase)",
+            "type": "string",
+            "enum": [
+                "bqaq",
+                "bumm",
+                "byaa",
+                "ctki",
+                "cshh",
+                "dybj",
+                "nqaq",
+                "tptl",
+                "fxfr",
+                "aidj",
+                "fqhh",
+                "ddde",
+                "gehh",
+                "jtum",
+                "mium",
+                "anhh",
+                "nthh",
+                "nhvu",
+                "pchh",
+                "pzpa",
+                "csxx",
+                "skin",
+                "rhzw",
+                "puum",
+                "hvbf",
+                "suhh",
+                "vdvn",
+                "wkum",
+                "ydye",
+                "yucs",
+                "zrcd"
+            ]
+        },
+        "EnglishShortNames": {
+            "title": "ISO 3166-3 formerly assigned country English short names (titlecase)",
+            "type": "string",
+            "enum": [
+                "British Antarctic Territory",
+                "Burma",
+                "Byelorussian SSR",
+                "Canton and Enderbury Islands",
+                "Czechoslovakia",
+                "Dahomey",
+                "Dronning Maud Land",
+                "East Timor [note 1]",
+                "France, Metropolitan",
+                "French Afars and Issas",
+                "French Southern and Antarctic Territories",
+                "German Democratic Republic",
+                "Gilbert Islands",
+                "Johnston Island",
+                "Midway Islands",
+                "Netherlands Antilles",
+                "Neutral Zone",
+                "New Hebrides",
+                "Pacific Islands (Trust Territory)",
+                "Panama Canal Zone",
+                "Serbia and Montenegro",
+                "Sikkim",
+                "Southern Rhodesia",
+                "United States Miscellaneous Pacific Islands",
+                "Upper Volta",
+                "USSR",
+                "Viet-Nam, Democratic Republic of",
+                "Wake Island",
+                "Yemen, Democratic",
+                "Yugoslavia",
+                "Zaire"
+            ]
+        }
+    }
+}

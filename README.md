@@ -82,6 +82,10 @@ Validation of an object that represents an image.
   - [Link Relation Types Registry](#iana-link-relation-types-registry) [[prod](https://jenkin.dev/json-schema-bricks/IANALinkRelationTypes.schema.min.json), [dev](https://jenkin.dev/json-schema-bricks/IANALinkRelationTypes.schema.json)]
   - [Media Types Registry](#iana-media-types-registries) [[prod](https://jenkin.dev/json-schema-bricks/IANAMediaTypes.schema.min.json), [dev](https://jenkin.dev/json-schema-bricks/IANAMediaTypes.schema.json)]
   - [Character Sets Registry](#iana-character-sets-registries) [[prod](https://jenkin.dev/json-schema-bricks/IANACharacterSets.schema.min.json), [dev](https://jenkin.dev/json-schema-bricks/IANACharacterSets.schema.json)]
+- [ISO International Organization for Standardization](#iso-international-organization-for-standardization)
+  - [ISO 3166-1: Country codes](#iso-3166-1) [[prod](https://jenkin.dev/json-schema-bricks/ISO3166-1.schema.min.json), [dev](https://jenkin.dev/json-schema-bricks/ISO3166-1.schema.json)]
+  - [ISO 3166-2: Country subdivision codes](#iso-3166-2) [[prod](https://jenkin.dev/json-schema-bricks/ISO3166-2.schema.min.json), [dev](https://jenkin.dev/json-schema-bricks/ISO3166-2.schema.json)]
+  - [ISO 3166-3: Codes for formerly used names of countries](#iso-3166-3) [[prod](https://jenkin.dev/json-schema-bricks/ISO3166-3.schema.min.json), [dev](https://jenkin.dev/json-schema-bricks/ISO3166-3.schema.json)]
 - [Geographic Information System (GIS)](#geographic-information-system-gis)
   - [GeocodeJSON](#geocodejson) [[prod](https://github.com/geocoders/geocodejson-spec/blob/master/draft/geocodejson.schema.json), [dev](https://github.com/geocoders/geocodejson-spec/blob/master/src/geocodejson.schema.json)] :partying_face: OFFICIALLY ADOPTED! :partying_face:
   - [GeoHash](#geohash) [[prod](https://jenkin.dev/json-schema-bricks/geohash.schema.min.json), [dev](https://jenkin.dev/json-schema-bricks/geohash.schema.json)]
@@ -174,6 +178,85 @@ Combinations:
 - all registries but MIBenum [[prod](https://jenkin.dev/json-schema-bricks/IANACharacterSets.schema.min.json#/$defs/AllRegistries), [dev](https://jenkin.dev/json-schema-bricks/IANACharacterSets.schema.json#/$defs/AllRegistries)]
 
 > Notes: MIBenum has string type. Root schema references `AllRegistries`.
+
+### ISO International Organization for Standardization
+
+[ISO](https://www.iso.org/about-us.html) (International Organization for Standardization) is an independent, non-governmental international organization with a membership of 169 national standards bodies.
+
+[ISO 3166](https://www.iso.org/iso-3166-country-codes.html) is the International Standard for country codes and codes for their subdivisions.
+Its purpose is to define internationally recognized codes of letters and/or numbers that we can use when we refer to countries and their subdivisions.
+It has three parts: codes for countries (ISO 3166-1), codes for subdivisions (ISO 3166-2) and formerly used codes (ISO 3166-3, codes that were once used to describe countries but are no longer in use).
+
+#### ISO 3166-1
+
+ISO 3166-1:2020 schema [[prod](https://jenkin.dev/json-schema-bricks/ISO3166-1.schema.min.json), [dev](https://jenkin.dev/json-schema-bricks/ISO3166-1.schema.json)].
+
+> Codes for the representation of names of countries and their subdivisions - Part 1: Country code
+
+Source: https://www.iso.org/standard/72482.html (see also the [glossary](https://www.iso.org/glossary-for-iso-3166.html)).
+
+Registries:
+
+- alpha-2 codes [[prod](https://jenkin.dev/json-schema-bricks/ISO3166-1.schema.min.json#/$defs/Alpha2Registry), [dev](https://jenkin.dev/json-schema-bricks/ISO3166-1.schema.json#/$defs/Alpha2Registry)]
+- alpha-3 codes [[prod](https://jenkin.dev/json-schema-bricks/ISO3166-1.schema.min.json#/$defs/Alpha3Registry), [dev](https://jenkin.dev/json-schema-bricks/ISO3166-1.schema.json#/$defs/Alpha3Registry)]
+- numeric codes [[prod](https://jenkin.dev/json-schema-bricks/ISO3166-1.schema.min.json#/$defs/NumericRegistry), [dev](https://jenkin.dev/json-schema-bricks/ISO3166-1.schema.json#/$defs/NumericRegistry)]
+- English short names [[prod](https://jenkin.dev/json-schema-bricks/ISO3166-1.schema.min.json#/$defs/EnglishShortNames), [dev](https://jenkin.dev/json-schema-bricks/ISO3166-1.schema.json#/$defs/EnglishShortNames)]
+
+Templates (custom regex):
+
+- alpha-2 template [[prod](https://jenkin.dev/json-schema-bricks/ISO3166-1.schema.min.json#/$defs/Alpha2Template), [dev](https://jenkin.dev/json-schema-bricks/ISO3166-1.schema.json#/$defs/Alpha2Template)]
+- alpha-3 template [[prod](https://jenkin.dev/json-schema-bricks/ISO3166-1.schema.min.json#/$defs/Alpha3Template), [dev](https://jenkin.dev/json-schema-bricks/ISO3166-1.schema.json#/$defs/Alpha3Template)]
+- numeric template [[prod](https://jenkin.dev/json-schema-bricks/ISO3166-1.schema.min.json#/$defs/NumericTemplate), [dev](https://jenkin.dev/json-schema-bricks/ISO3166-1.schema.json#/$defs/NumericTemplate)]
+
+Combinations:
+
+- all registries (only for codes, English short names are excluded) [[prod](https://jenkin.dev/json-schema-bricks/ISO3166-1.schema.min.json#/$defs/AllRegistries), [dev](https://jenkin.dev/json-schema-bricks/ISO3166-1.schema.json#/$defs/AllRegistries)]
+- all templates (only for codes, English short names are excluded) [[prod](https://jenkin.dev/json-schema-bricks/ISO3166-1.schema.min.json#/$defs/AllTemplates), [dev](https://jenkin.dev/json-schema-bricks/ISO3166-1.schema.json#/$defs/AllTemplates)]
+
+#### ISO 3166-2
+
+ISO 3166-2:2020 schema [[prod](https://jenkin.dev/json-schema-bricks/ISO3166-2.schema.min.json), [dev](https://jenkin.dev/json-schema-bricks/ISO3166-2.schema.json)].
+
+> Codes for the representation of names of countries and their subdivisions - Part 2: Country subdivision code
+
+Source: https://www.iso.org/standard/72483.html (see also the [glossary](https://www.iso.org/glossary-for-iso-3166.html)).
+
+Registries:
+
+- single country subdivision codes, one per ISO 3166-1 country code in the form `[A-Z]Registry`
+(ie. `ITRegistry` for Italy [[prod](https://jenkin.dev/json-schema-bricks/ISO3166-2.schema.min.json#/$defs/ITRegistry), [dev](https://jenkin.dev/json-schema-bricks/ISO3166-2.schema.json#/$defs/ITRegistry)]).
+- single country subdivision English short names, one per ISO 3166-1 country code in the form `[A-Z]EnglishShortNames`
+(ie. `ITEnglishShortNames` for Italy [[prod](https://jenkin.dev/json-schema-bricks/ISO3166-2.schema.min.json#/$defs/ITEnglishShortNames), [dev](https://jenkin.dev/json-schema-bricks/ISO3166-2.schema.json#/$defs/ITEnglishShortNames)]).
+
+Templates:
+
+- single country subdivision templates, one per ISO 3166-1 country code in the form `[A-Z]Template`
+(ie. `ITTemplate` for Italy [[prod](https://jenkin.dev/json-schema-bricks/ISO3166-2.schema.min.json#/$defs/ITTemplate), [dev](https://jenkin.dev/json-schema-bricks/ISO3166-2.schema.json#/$defs/ITTemplate)]).
+
+Combinations:
+
+- all registries (only for codes, English short names are excluded) [[prod](https://jenkin.dev/json-schema-bricks/ISO3166-2.schema.min.json#/$defs/AllRegistries), [dev](https://jenkin.dev/json-schema-bricks/ISO3166-2.schema.json#/$defs/AllRegistries)]
+- all templates (only for codes, English short names are excluded) [[prod](https://jenkin.dev/json-schema-bricks/ISO3166-2.schema.min.json#/$defs/AllTemplates), [dev](https://jenkin.dev/json-schema-bricks/ISO3166-2.schema.json#/$defs/AllTemplates)]
+- all English short names [[prod](https://jenkin.dev/json-schema-bricks/ISO3166-2.schema.min.json#/$defs/AllEnglishShortNames), [dev](https://jenkin.dev/json-schema-bricks/ISO3166-2.schema.json#/$defs/AllEnglishShortNames)]
+
+> Notes: codes are based on the two-letter code element from ISO 3166-1 followed by a separator and up to three alphanumeric characters.
+
+#### ISO 3166-3
+
+ISO 3166-3:2020 schema [[prod](https://jenkin.dev/json-schema-bricks/ISO3166-3.schema.min.json), [dev](https://jenkin.dev/json-schema-bricks/ISO3166-3.schema.json)].
+
+> Codes for the representation of names of countries and their subdivisions - Part 3: Code for formerly used names of countries
+
+Source: https://www.iso.org/standard/72484.html (see also the [glossary](https://www.iso.org/glossary-for-iso-3166.html)).
+
+Registries:
+
+- Alpha-4 codes [[prod](https://jenkin.dev/json-schema-bricks/ISO3166-3.schema.min.json#/$defs/Alpha4Registry), [dev](https://jenkin.dev/json-schema-bricks/ISO3166-3.schema.json#/$defs/Alpha4Registry)]
+- English short names [[prod](https://jenkin.dev/json-schema-bricks/ISO3166-3.schema.min.json#/$defs/EnglishShortNames), [dev](https://jenkin.dev/json-schema-bricks/ISO3166-3.schema.json#/$defs/EnglishShortNames)]
+
+Templates (custom regex):
+
+- Alpha-4 template [[prod](https://jenkin.dev/json-schema-bricks/ISO3166-3.schema.min.json#/$defs/Alpha4Template), [dev](https://jenkin.dev/json-schema-bricks/ISO3166-3.schema.json#/$defs/Alpha4Template)]
 
 ### Geographic Information System (GIS)
 
